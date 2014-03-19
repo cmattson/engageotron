@@ -33,7 +33,10 @@ gem 'spring',        group: :development
 gem 'devise'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
+
+gem 'simplecov'
+gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
