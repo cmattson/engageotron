@@ -35,6 +35,9 @@ gem 'devise'
 # Use unicorn as the app server
 gem 'unicorn'
 
+# 12 Factor for Heroku deployment
+gem 'rails_12factor'
+
 gem 'simplecov'
 gem 'pry'
 
