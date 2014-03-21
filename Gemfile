@@ -38,6 +38,7 @@ gem 'unicorn'
 # 12 Factor for Heroku deployment
 gem 'rails_12factor'
 
+gem 'mocha'
 gem 'simplecov'
 gem 'pry'
 
