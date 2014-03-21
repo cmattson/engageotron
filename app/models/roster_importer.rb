@@ -62,13 +62,13 @@ class RosterImporter
   def process_email_export
     @roster.rewind
     CSV.foreach(@roster, {headers: true}) do |c|
-      # c["member_first_name"]
-      # c["member_last_name"]
-      # c["member_company"]
+      u = Contact.find_or_create_by(c['email_address'])
+      u.first_name    ||= c["member_first_name"]
+      u.last_name     ||= c["member_last_name"]
+      u.company_name  ||= c["member_company"]
+      u.phone         ||= c["phone_number"]
       # c["chapter_name"]
       # c["category_name"]
-      # c["phone_number"]
-      # c["email_address"]
     end
   end
 end
