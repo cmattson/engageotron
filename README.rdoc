@@ -1,28 +1,39 @@
-== ASMP Engage-o-Tron
+= ASMP Engage-o-Tron
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== System Requirements
 
-Things you may want to cover:
+Engage-o-Tron is tested using Ruby 2.1 and PostgreSQL.
 
-* Ruby version
+It will likely work on Ruby 1.9 or later, and _may_ work with MySQL with minor
+modifications.
 
-* System dependencies
+== Deployment
 
-* Configuration
+There are three deployment options relevant to most ASMP chapters:
 
-* Database creation
+* <b>Standard deployment.</b> If you have a nerd at your disposal, Engage-o-tron
+  may be deployed the same way as any Ruby web app. While Unicorn is used by
+  default, there are no dependencies on Unicorn. Your nerd may substitute
+  any server solution of their choosing. 
+* <b>Heroku deployment.</b> Heroku's "Platform as a Service" offering eliminates
+  most common server maintenance tasks. If your nerd isn't comfortable
+  administering or doesn't want to administer a server, this allows you to
+  focus solely on your custom Engage-o-Tron installation. Single-server
+  Heroku instances are free and will be sufficient for most chapters.
+* <b>Hosted Engage-o-Tron.</b> If you don't need custom features, I maintain a
+  hosted Engage-o-Tron service available to all ASMP chapters. Any chapter
+  leader may contact me to have their chapter added. This is currently free.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+=== Configuration
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+== Development & Testing
+
+Engage-o-Tron includes a test suite.
+
+== Contributing
+
+Fixed a bug? Added something awesome? Send a pull request!
+
+Please include tests for your changes.
