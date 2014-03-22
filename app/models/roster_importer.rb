@@ -35,7 +35,7 @@ class RosterImporter
     field_count = line.split(',').count
     if field_count == 36
       :roster
-    elsif (1..7).cover?(field_count) && line.split(',').include?('email_address')
+    elsif (1..7).cover?(field_count) && line.chomp.split(', ').include?('"email_address"')
       :emails
     else
       false
@@ -95,22 +95,22 @@ class RosterImporter
       # row["member_primary_website_type"]
       # row["member_primary_website_url"]
       c.specialties   ||= row["member_memberspecialties"]
-      c.save
+      c.save!
     end
   end
 
   # Import members from an Email Export.
   def process_email_export
     @roster.rewind
-    CSV.foreach(@roster, {headers: true}) do |row|
-      c = Contact.find_or_create_by(row['email_address'])
+    CSV.foreach(@roster, {headers: true, col_sep: ', '}) do |row|
+      c = Contact.find_or_create_by(email: row['email_address'])
       c.first_name    ||= row["member_first_name"]
       c.last_name     ||= row["member_last_name"]
       c.company_name  ||= row["member_company"]
       c.phone         ||= row["phone_number"]
       # c["chapter_name"]
       # c["category_name"]
-      c.save
+      c.save!
     end
   end
 end

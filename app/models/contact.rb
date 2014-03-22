@@ -7,5 +7,5 @@ class Contact < ActiveRecord::Base
   MEMBER_TYPE = {
   }
   validates :email, uniqueness: true
-  validates :member_num, uniqueness: true
+  validates :member_num, uniqueness: true, allow_nil: true
 end
