@@ -1,11 +1,30 @@
 = ASMP Engage-o-Tron
 
+Engage-o-Tron aims to let ASMP chapter leaders better serve their chapter members.
+
+Think of it like an ASMP-specific Customer Relationship Management (CRM) tool:
+using chapter roster exports and event attendance exports, you can find out
+who's engaged and who's falling through the cracks.
+
+Features:
+* Import Chapter Membership Rosters
+
+Planned Features:
+* MailChimp Integration
+
+== Here Be Dragons!
+
+N.B.: This is a work in progress!
+
+This is a complete rewrite of a utility that's several Rails versions
+behind. It is not complete. 
+
 == System Requirements
 
 Engage-o-Tron is tested using Ruby 2.1 and PostgreSQL.
 
-It will likely work on Ruby 1.9 or later, and _may_ work with MySQL with minor
-modifications.
+It will likely work on Ruby 1.9 or later, and _may_ work with MySQL with only
+minor modifications.
 
 == Deployment
 
@@ -26,11 +45,11 @@ There are three deployment options relevant to most ASMP chapters:
 
 === Configuration
 
-
+WIP.
 
 == Development & Testing
 
-Engage-o-Tron includes a test suite.
+* Given a choice between being clear or being clever, choose clear. 
 
 == Contributing
 
