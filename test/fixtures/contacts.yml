@@ -11,8 +11,9 @@ one:
   zip_code: MyString
   phone: MyString
   member: false
-  member_type: 1
-  member_since: 2014-03-06
+  member_type: 5
+  member_since: 2001-01-01
+  email: one@example.com
 
 two:
   first_name: MyString
@@ -27,3 +28,9 @@ two:
   member: false
   member_type: 1
   member_since: 2014-03-06
+  email: two@example.com
+
+three:
+  first_name: Third
+  last_name: Third
+  email: three@example.com
