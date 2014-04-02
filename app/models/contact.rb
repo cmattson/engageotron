@@ -8,13 +8,13 @@ class Contact < ActiveRecord::Base
   }
   validates :email, uniqueness: true
   validates :member_num, uniqueness: true, allow_nil: true
-  
+
   # Returns the contact's full name (first and last names).
   def full_name
     [first_name, last_name].join(' ')
   end
-  
-  # ...
+
+  # Returns the contact's name in directory format (last name first).
   def directory_name
     [last_name, first_name].join(', ')
   end

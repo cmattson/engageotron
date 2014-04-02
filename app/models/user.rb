@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable, :lockable
 
+  # Returns the user's full name (first and last).
   def full_name
     [first_name, last_name].join(' ')
   end
