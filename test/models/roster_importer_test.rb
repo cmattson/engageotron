@@ -4,6 +4,7 @@ require 'tempfile'
 class RosterImporterTest < ActiveSupport::TestCase
   ROSTER_CSV = 'x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x'
   EMAIL_CSV  = '"email_address"'
+  UNK_CSV    = 'x,x,x,x,x,x,x'
   
   test "identify roster export" do
     assert_equal :roster, RosterImporter.new.identify(ROSTER_CSV)
@@ -14,6 +15,7 @@ class RosterImporterTest < ActiveSupport::TestCase
   end
   
   test "identify unknown format with nil" do
+    assert_equal false, RosterImporter.new.identify(UNK_CSV)
   end
   
   test "process calls roster" do
