@@ -85,7 +85,7 @@ class RosterImporter
       # row["member_primary_address_county_id"]
       # row["member_primary_phone_private"]
       # row["member_primary_phone_type"]
-      c.phone ||= row['member_primary_phone_number']
+      c.phone         ||= row['member_primary_phone_number']
       # row["member_primary_fax_private"]
       # row["member_primary_fax_type"]
       # row["member_primary_fax_number"]
@@ -93,8 +93,9 @@ class RosterImporter
       # row["member_primary_email_type"]
       # row["member_primary_email_address"]
       # row["member_primary_website_type"]
-      # row["member_primary_website_url"]
+      c.website_url   ||= row["member_primary_website_url"]
       c.specialties   ||= row['member_memberspecialties']
+      c.member = true
       c.save!
     end
   end
