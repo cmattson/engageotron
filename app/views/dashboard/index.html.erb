@@ -1,0 +1,26 @@
+<%= render 'shared/navbar' %>
+<div class="row">
+  <div class="large-12 columns">
+    <% if current_user.first_name? %>
+    <h1>Welcome back, <%= current_user.first_name %>!</h1>
+    <% else %>
+    <h1>Welcome back!</h1>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h2>Newest Members</h2>
+    <table>
+    <% @newest.each do |m| %>
+      <tr>
+        <td><%= m.full_name %></td>
+        <td><%= m.company_name %></td>
+        <td><%= m.city %></td>
+        <td><%= m.member_cat_name %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

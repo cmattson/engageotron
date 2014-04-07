@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="large-12 columns">
+    <%= form_tag dashboard_process_roster_path, multipart: true do %>
+      <label for="roster_csv">File to Upload</label>
+      <%= file_field_tag :roster_csv %>
+      <%= submit_tag 'Upload File', class: [:radius, :button] %>
+    <% end %>
+  </div>
+</div>

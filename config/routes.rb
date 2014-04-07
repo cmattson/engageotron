@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+  get 'dashboard/upload_roster'
+  post 'dashboard/process_roster'
+  get 'dashboard/at_a_glance'
+
   devise_for :users
   get 'welcome/index'
 
