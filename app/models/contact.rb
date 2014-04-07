@@ -9,6 +9,9 @@ class Contact < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :member_num, uniqueness: true, allow_nil: true
 
+  default_scope { order('last_name ASC, first_name ASC') }
+  scope :newest, -> { unscoped.where(member: true).order('member_since DESC').limit(5) }
+  
   # Returns the contact's full name (first and last names).
   def full_name
     [first_name, last_name].join(' ')
