@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @chapter_event.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @chapter_event.date %>
+</p>
+
+<%= link_to 'Edit', edit_chapter_event_path(@chapter_event) %> |
+<%= link_to 'Back', chapter_events_path %>

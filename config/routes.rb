@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :chapter_events
+
   get 'dashboard/index'
   get 'dashboard/upload_roster'
   post 'dashboard/process_roster'

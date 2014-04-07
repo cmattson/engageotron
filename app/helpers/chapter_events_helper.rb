@@ -1,0 +1,2 @@
+module ChapterEventsHelper
+end

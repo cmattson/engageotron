@@ -1,0 +1,27 @@
+<h1>Listing chapter_events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chapter_events.each do |chapter_event| %>
+      <tr>
+        <td><%= chapter_event.name %></td>
+        <td><%= chapter_event.date %></td>
+        <td><%= link_to 'Show', chapter_event %></td>
+        <td><%= link_to 'Edit', edit_chapter_event_path(chapter_event) %></td>
+        <td><%= link_to 'Destroy', chapter_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chapter event', new_chapter_event_path %>

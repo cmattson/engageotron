@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407032106) do
+ActiveRecord::Schema.define(version: 20140407201117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chapter_events", force: true do |t|
+    t.string   "name"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "chapter_events_contacts", id: false, force: true do |t|
+    t.integer "contact_id",       null: false
+    t.integer "chapter_event_id", null: false
+  end
+
+  add_index "chapter_events_contacts", ["chapter_event_id", "contact_id"], name: "events_contacts", using: :btree
 
   create_table "contacts", force: true do |t|
     t.string   "first_name"
