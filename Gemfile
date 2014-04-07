@@ -42,6 +42,11 @@ gem 'mocha'
 gem 'simplecov'
 gem 'pry'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
