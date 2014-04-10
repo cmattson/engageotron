@@ -68,7 +68,7 @@ class RosterImporter
       c.middle_name   ||= row['member_middle_name']
       c.last_name     ||= row['member_last_name']
       c.suffix        ||= row['member_suffix']
-      c.company_name  ||= row['member_company']
+      c.company_name  ||= row['member_company'].gsub(/&amp;/,'&')
       c.member_cat_id ||= row['member_current_category_id']
       c.member_cat_name ||= row['member_current_category_name']
       # row["member_category_change_date"]
