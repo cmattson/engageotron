@@ -8,6 +8,7 @@ who's engaged and who's falling through the cracks.
 
 Features:
 * Import Chapter Membership Rosters
+* Basic Reporting
 
 Planned Features:
 * MailChimp Integration
@@ -16,8 +17,21 @@ Planned Features:
 
 N.B.: This is a work in progress!
 
-This is a complete rewrite of a utility that's several Rails versions
-behind. It is not complete. 
+This is a complete rewrite of a slapped-together utility that I had created
+for the Phoenix chapter. It is not yet complete.
+
+Have a little programming or web design experience? You're invited to
+contribute in any way you feel comfortable! 
+
+We're using Ruby on Rails 4.1 for this project. Ruby is a lovely programming
+language and it shouldn't take long to get up to speed if you've ever used
+another language. Rails is a little tougher pill to swallow, but there are
+many great online resources and books to help you out.
+
+Layout is built on top of the fantastic Zurb Foundation framework. If you've
+used Foundation, working with the Engageotron layouts should be a snap. If
+you've used Bootstrap or 960gs, they're very similar conceptually, and you
+should be designing in no time!
 
 == System Requirements
 
