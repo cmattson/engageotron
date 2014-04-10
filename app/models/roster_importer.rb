@@ -49,9 +49,12 @@ class RosterImporter
     case identify(@roster.gets)
     when :roster
       process_roster
+      true
     when :emails
       process_email_export
+      true
     else
+      nil
     end
   end
 
