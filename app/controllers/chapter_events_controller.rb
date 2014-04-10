@@ -1,4 +1,5 @@
 class ChapterEventsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_chapter_event, only: [:show, :edit, :update, :destroy]
 
   # GET /chapter_events
