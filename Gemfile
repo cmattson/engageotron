@@ -37,7 +37,7 @@ gem 'devise'
 gem 'unicorn'
 
 # 12 Factor for Heroku deployment
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 gem 'mocha'
 gem 'simplecov'
