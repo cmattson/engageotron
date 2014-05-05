@@ -8,66 +8,48 @@
     </div>
   <% end %>
   
-<p>
-  <strong>First name:</strong>
-  <%= @contact.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @contact.last_name %>
-</p>
-
-<p>
-  <strong>Company name:</strong>
-  <%= @contact.company_name %>
-</p>
-
-<p>
-  <strong>Address1:</strong>
-  <%= @contact.address1 %>
-</p>
-
-<p>
-  <strong>Address2:</strong>
-  <%= @contact.address2 %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @contact.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @contact.state %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @contact.zip_code %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @contact.phone %>
-</p>
-
-<p>
-  <strong>Member:</strong>
-  <%= @contact.member %>
-</p>
-
-<p>
-  <strong>Member type:</strong>
-  <%= @contact.member_type %>
-</p>
-
-<p>
-  <strong>Member since:</strong>
-  <%= @contact.member_since %>
-</p>
-
+  <h1><%= @contact.full_name %></h1>
+  <h2><%= @contact.company_name %></h2>
+  
+  <p><%= @contact.member_cat_name %></p>
+  <p>Member since <%= @contact.member_since %></p>
+  
+  <% if @contact.member_since > Time.now %>
+    <div data-alert class="alert-box info">
+      This member is currently awaiting membership approval.
+    </div>
+  <% end %>
+  
+  <div class="row">
+    <div class="large-6 columns">
+      <h3>Mailing Address</h3>
+      <%= @contact.address1 %><br>
+      <%= @contact.address2 %><br>
+      <%= @contact.city %>, <%= @contact.state %> <%= @contact.zip_code %>
+    </div>
+    <div class="large-6 columns">
+      MAP!
+    </div>
+  </div>
+  
+  <h3>Telephone</h3>
+  <%= link_to @contact.phone, "tel:#{@contact.phone.gsub(/\W/,'')}" %>
+  
+  <h3>Event Attendance</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Distance</th>
+        <th>Attended?</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
 </div>
