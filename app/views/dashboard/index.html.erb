@@ -31,13 +31,25 @@
   <div class="large-12 columns">
     <h2>Newest Members</h2>
     <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Company</th>
+          <th>City</th>
+          <th>Category</th>
+          <th>Join Date</th>
+        </tr>
+      </thead>
     <% @newest.each do |m| %>
-      <tr>
-        <td><%= m.full_name %></td>
-        <td><%= m.company_name %></td>
-        <td><%= m.city %></td>
-        <td><%= m.member_cat_name %></td>
-      </tr>
+      <tbody>
+        <tr>
+          <td><%= link_to m.full_name, m %></td>
+          <td><%= link_to m.company_name, m.website_url %></td>
+          <td><%= m.city %></td>
+          <td><%= m.member_cat_name %></td>
+          <td><%= m.member_since.strftime('%D') %></td>
+        </tr>
+      </tbody>
     <% end %>
     </table>
   </div>
