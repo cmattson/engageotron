@@ -59,36 +59,40 @@ class RosterImporter
   end
 
   # Import members from a Chapter Roster.
+  #
+  # N.B. We look up existing members by member number. This number is unique,
+  # assigned permanently and will persist even across drop/rejoin.
   def process_roster
     @roster.rewind
     CSV.foreach(@roster, headers: true) do |row|
-      c = Contact.find_or_create_by(email: row['member_primary_email_address'])
+      c = Contact.find_or_create_by(member_num: row['member_id'])
+      c.email           = row['member_email']
       c.member_num    ||= row['member_id']
       c.first_name    ||= row['member_first_name']
       c.middle_name   ||= row['member_middle_name']
-      c.last_name     ||= row['member_last_name']
+      c.last_name       = row['member_last_name']
       c.suffix        ||= row['member_suffix']
-      c.company_name  ||= row['member_company'].gsub(/&amp;/,'&')
-      c.member_cat_id ||= row['member_current_category_id']
-      c.member_cat_name ||= row['member_current_category_name']
+      c.company_name    = row['member_company'].gsub(/&amp;/,'&')
+      c.member_cat_id   = row['member_current_category_id']
+      c.member_cat_name = row['member_current_category_name']
       # row["member_category_change_date"]
-      c.member_since  ||= row['member_join_date']
+      c.member_since  ||= Date.strptime(row['member_join_date'], '%m/%d/%Y')
       # row["member_rejoin_date"]
       # row["member_drop_date"]
       # row["member_standing"]
       # row["member_current_chapter_id"]
       # row["member_current_chapter_name"]
       # row["member_primary_address_private"]
-      c.address1      ||= row['member_primary_address_line1']
-      c.address2      ||= row['member_primary_address_line2']
-      c.city          ||= row['member_primary_address_city']
-      c.state         ||= row['member_primary_address_state']
-      c.zip_code      ||= row['member_primary_address_zip']
+      c.address1        = row['member_primary_address_line1']
+      c.address2        = row['member_primary_address_line2']
+      c.city            = row['member_primary_address_city']
+      c.state           = row['member_primary_address_state']
+      c.zip_code        = row['member_primary_address_zip']
       # row["member_primary_address_county"]
       # row["member_primary_address_county_id"]
       # row["member_primary_phone_private"]
       # row["member_primary_phone_type"]
-      c.phone         ||= row['member_primary_phone_number']
+      c.phone           = row['member_primary_phone_number']
       # row["member_primary_fax_private"]
       # row["member_primary_fax_type"]
       # row["member_primary_fax_number"]
@@ -96,8 +100,8 @@ class RosterImporter
       # row["member_primary_email_type"]
       # row["member_primary_email_address"]
       # row["member_primary_website_type"]
-      c.website_url   ||= row["member_primary_website_url"]
-      c.specialties   ||= row['member_memberspecialties']
+      c.website_url     = row["member_primary_website_url"]
+      c.specialties     = row['member_memberspecialties']
       c.member = true
       c.save!
     end
