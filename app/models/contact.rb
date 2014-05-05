@@ -6,7 +6,7 @@
 class Contact < ActiveRecord::Base
   MEMBER_TYPE = {
   }
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, allow_nil: true
   validates :member_num, uniqueness: true, allow_nil: true
 
   default_scope { order('last_name ASC, first_name ASC') }
