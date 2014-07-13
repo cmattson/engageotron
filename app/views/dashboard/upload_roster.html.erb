@@ -1,5 +1,8 @@
+<%= render 'shared/navbar' %>
+
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-12 medium-12 columns">
+	  <h1>Upload a Roster</h1>
     <%= form_tag dashboard_process_roster_path, multipart: true do %>
       <label for="roster_csv">File to Upload</label>
       <%= file_field_tag :roster_csv %>

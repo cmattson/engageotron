@@ -4,7 +4,8 @@ require 'csv'
 #
 # IMPORTANT NOTE:
 # There are *two* roster formats.
-# 1. "True" roster, from Utilities, exports the complete member records.
+# 1. "True" roster, or Chapter Export from Utilities, exports the complete
+#    member records.
 # 2. Email export, from Chapters, exports basic contact information
 #    (email, first, last, company, chapter, category, phone)
 #
@@ -61,7 +62,7 @@ class RosterImporter
   # Import members from a Chapter Roster.
   #
   # N.B. We look up existing members by member number. This number is unique,
-  # assigned permanently and will persist even across drop/rejoin.
+  # assigned permanently, and will persist even across drop/rejoin.
   def process_roster
     @roster.rewind
     CSV.foreach(@roster, headers: true) do |row|
@@ -72,7 +73,7 @@ class RosterImporter
       c.middle_name   ||= row['member_middle_name']
       c.last_name       = row['member_last_name']
       c.suffix        ||= row['member_suffix']
-      c.company_name    = row['member_company'].gsub(/&amp;/,'&')
+      c.company_name    = row['member_company'].gsub(/&amp;/, '&')
       c.member_cat_id   = row['member_current_category_id']
       c.member_cat_name = row['member_current_category_name']
       # row["member_category_change_date"]
@@ -100,7 +101,7 @@ class RosterImporter
       # row["member_primary_email_type"]
       # row["member_primary_email_address"]
       # row["member_primary_website_type"]
-      c.website_url     = row["member_primary_website_url"]
+      c.website_url     = row['member_primary_website_url']
       c.specialties     = row['member_memberspecialties']
       c.member = true
       c.save!
