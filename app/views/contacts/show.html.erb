@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-12 medium-12 small-12 columns">
     <% if notice %>
       <div data-alert class="alert-box">
         <%= notice %>
@@ -24,20 +24,24 @@
 </div>
   
 <div class="row">
-  <div class="large-6 columns">
+  <div class="large-6 medium-6 small-12 columns">
     <h3>Mailing Address</h3>
-    <%= @contact.address1 %><br>
-    <%= @contact.address2 %><br>
-    <%= @contact.city %>, <%= @contact.state %> <%= @contact.zip_code %>
+    <p>
+      <%= @contact.address1 %><br>
+      <% unless @contact.address2.empty? %>
+      <%= @contact.address2 %><br>
+      <% end %>
+      <%= @contact.city %>, <%= @contact.state %> <%= @contact.zip_code %>
+    </p>
   </div>
-  <div class="large-6 columns">
+  <div class="large-6 medium-6 small-12 columns">
     <h3>Telephone</h3>
-    <%= link_to @contact.phone, "tel:#{@contact.phone.gsub(/\W/,'')}" %>
+    <p><%= link_to @contact.phone, "tel:#{@contact.phone.gsub(/\W/,'')}" %></p>
   </div>
 </div>
   
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-12 medium-12 small-12 columns">
     <h3>Event Attendance</h3>
     <table>
       <thead>
