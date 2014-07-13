@@ -30,12 +30,23 @@ class Contact < ActiveRecord::Base
   # Returns median join date of members
   def self.median_age
     times = join_dates.map{ |x| x.to_time.to_i }
+    # If no members, return N/A
+    if times.empty?
+      'N/A'
     # If even array, mean the two middle values.
-    if times.size.even?
+    elsif times.size.even?
       Time.at((times[times.size / 2] + times[times.size / 2 - 1]) / 2).to_date
     # If odd array, use the true median.
     else
       Time.at(times[times.size / 2]).to_date
     end
+  end
+  
+  def self.newest_join_date
+    last_joined.empty? ? 'N/A' : last_joined.first.member_since.strftime("%D")
+  end
+  
+  def self.oldest_join_date
+    first_joined.empty? ? 'N/A' : first_joined.first.member_since.strftime('%D')
   end
 end

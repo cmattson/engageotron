@@ -12,7 +12,7 @@
           Newest Join
         </th>
         <td>
-          <%= Contact.last_joined.first.member_since.strftime('%D') %>
+          <%= Contact.newest_join_date %>
         </td>
       </tr>
       <tr>
@@ -20,7 +20,7 @@
           Median Join
         </th>
         <td>
-          <%= Contact.median_age.strftime('%D') %>          
+          <%= Contact.median_age %>          
         </td>
       </tr>
       <tr>
@@ -28,7 +28,7 @@
           Oldest Join
         </th>
         <td>
-          <%= Contact.first_joined.first.member_since.strftime('%D') %>
+          <%= Contact.oldest_join_date %>
         </td>
       </tr>
     </table>
